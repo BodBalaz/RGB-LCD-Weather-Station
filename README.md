@@ -38,4 +38,4 @@ A projekt az alábbi fő komponensekből épül fel:
 
 ## Telepítési útmutató
 1. Telepítsd az Arduino IDE-ben a `DHT sensor library` és a `LiquidCrystal I2C` könyvtárakat.
-2. Nyisd meg a `.ino` fájlt és töltsd fel az Arduinóra.
+2. Nyisd meg a <a href=sketch.ino>`sketch.ino`<a/> fájlt és töltsd fel az Arduinóra.
