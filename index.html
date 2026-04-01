@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <title>Arduino Weather Station</title>
+
+    <style>
+      :root {
+        --bs-body-bg: #111418;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container-xl py-5">
+      <section class="mb-5">
+        <div class="bg-body-tertiary p-xl-5 p-4 rounded-4 border w-100">
+          <div class="row g-4 g-xl-5 align-items-center">
+            <div class="col-lg-5">
+              <h1 class="display-4 fw-bold">Arduino Weather Station</h1>
+              <p class="mb-3">
+                Ez a projekt egy Arduino alapú meteorológiai állomás, amely
+                képes a környezeti hőmérséklet és páratartalom valós idejű
+                monitorozására. Az eszköz különlegessége, hogy az adatok
+                számszerű kijelzése mellett egy RGB LED segítségével vizuális
+                visszajelzést is ad a hőmérsékletről.
+              </p>
+              <p>
+                A projekt kipróbálható a Wokwi-ban. A DHT22 szenzorra kattintva
+                manuálisan állítható a hőmérsékletet, illetve a páratartalom.
+              </p>
+              <a
+                href="https://wokwi.com/projects/459456696843830273"
+                class="btn btn-primary"
+                target="_blank"
+              >
+                Wokwi projekt megnyitása
+              </a>
+              <a
+                class="btn btn-outline-light"
+                href="RGB_LCD_Weather_Station.ino"
+                download
+                >Kód letöltése</a
+              >
+            </div>
+            <div class="col-lg-7">
+              <div
+                class="ratio ratio-4x3 border rounded-3 overflow-hidden"
+                style="min-height: 500px"
+              >
+                <iframe
+                  src="https://wokwi.com/projects/459456696843830273"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h2 class="mb-3">Funkciók és működés</h2>
+        <div class="row">
+          <div class="col">
+            <div class="card h-100 border">
+              <div class="card-body">
+                <h3 class="mb-2">LCD kijelző adatai</h3>
+                <p class="mb-0">
+                  A kijelző folyamatosan mutatja az aktuális hőmérsékletet és
+                  páratartalmat.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card border">
+              <div class="card-body">
+                <h3 class="mb-2">RGB LED színjelzés</h3>
+                <ul class="mb-0 ps-4">
+                  <li>Fehér: 0°C alatt (Fagy)</li>
+                  <li>Kék: 0°C - 18°C (Hideg)</li>
+                  <li>Zöld: 18°C - 25°C (Ideális)</li>
+                  <li>Narancs: 25°C - 30°C (Meleg)</li>
+                  <li>Piros: 30°C felett (Hőség)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row mb-4 align-items-start">
+        <div class="col">
+          <section>
+            <h2 class="mb-3">Hardver felépítés</h2>
+            <ul class="list-group">
+              <li class="list-group-item">Arduino Uno</li>
+              <li class="list-group-item">DHT22 szenzor</li>
+              <li class="list-group-item">I2C LCD 16x2</li>
+              <li class="list-group-item">Common Cathode RGB LED</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="col">
+          <section>
+            <h2 class="mb-3">Bekötési táblázat</h2>
+            <div class="card overflow-hidden">
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-bordered mb-0">
+                    <thead>
+                      <tr>
+                        <th>Komponens</th>
+                        <th>Arduino Pin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>DHT22 Data</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>RGB Red</td>
+                        <td>6</td>
+                      </tr>
+                      <tr>
+                        <td>RGB Green</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>RGB Blue</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <td>LCD SDA</td>
+                        <td>A4</td>
+                      </tr>
+                      <tr>
+                        <td>LCD SCL</td>
+                        <td>A5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section class="mb-4">
+        <h2 class="mb-3">Telepítési útmutató</h2>
+        <div class="card">
+          <div class="card-body">
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                Telepítsd az Arduino IDE-ben a DHT sensor library és a
+                LiquidCrystal I2C könyvtárakat.
+              </li>
+              <li>Nyisd meg a sketch.ino fájlt és töltsd fel az Arduinóra.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
